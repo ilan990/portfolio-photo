@@ -1,0 +1,6 @@
+# https://ilanassouline.com/robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ilanassouline.com/sitemap.xml
