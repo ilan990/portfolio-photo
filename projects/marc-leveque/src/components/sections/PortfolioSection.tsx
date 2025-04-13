@@ -22,88 +22,84 @@ export default function PortfolioSection() {
     : projects.filter(project => project.category === selectedCategory);
 
   return (
-    <section id="portfolio" className="section bg-gray-50">
-      <div className="container">
+    <section className="w-full min-h-screen bg-white py-24">
+      <div className="w-full max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-16"
         >
-          <h2 className="section-title">Portfolio</h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Une sélection de projets architecturaux capturés à travers mon objectif,
-            mettant en valeur la beauté des espaces et des formes.
-          </p>
-        </motion.div>
+          {/* En-tête */}
+          <header className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl font-light tracking-tight mb-6">Portfolio</h2>
+            <p className="text-gray-600">
+              Une sélection de projets architecturaux capturés à travers mon objectif
+            </p>
+          </header>
 
-        {/* Filtres */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`btn ${
-              selectedCategory === 'all'
-                ? 'bg-primary text-white'
-                : 'bg-white text-gray-600 hover:bg-gray-50'
-            }`}
-          >
-            Tous les projets
-          </button>
-          {categories.map((category) => (
+          {/* Filtres */}
+          <nav className="flex justify-center space-x-8">
             <button
-              key={category.value}
-              onClick={() => setSelectedCategory(category.value)}
-              className={`btn ${
-                selectedCategory === category.value
-                  ? 'bg-primary text-white'
-                  : 'bg-white text-gray-600 hover:bg-gray-50'
+              onClick={() => setSelectedCategory('all')}
+              className={`text-lg transition-colors duration-200 ${
+                selectedCategory === 'all'
+                  ? 'text-black'
+                  : 'text-gray-400 hover:text-gray-600'
               }`}
             >
-              {category.label}
+              Tous
             </button>
-          ))}
-        </div>
-
-        {/* Grille de projets */}
-        <motion.div
-          layout
-          className="grid-gallery"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4 }}
-                className="relative aspect-[4/3] group"
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
+            {categories.map((category) => (
+              <button
+                key={category.value}
+                onClick={() => setSelectedCategory(category.value)}
+                className={`text-lg transition-colors duration-200 ${
+                  selectedCategory === category.value
+                    ? 'text-black'
+                    : 'text-gray-400 hover:text-gray-600'
+                }`}
               >
-                <Link href={`/portfolio/${project.slug}`}>
-                  <Image
-                    src={project.coverImage}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300">
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h3 className="text-white text-2xl font-playfair mb-2">{project.title}</h3>
-                      <p className="text-gray-200 text-center">{project.shortDescription}</p>
-                      <span className="mt-4 inline-block px-6 py-2 border-2 border-white text-white hover:bg-white hover:text-black transition-colors duration-300">
-                        Voir le projet
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
+                {category.label}
+              </button>
             ))}
-          </AnimatePresence>
+          </nav>
+
+          {/* Grille de projets */}
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <motion.article
+                  key={project.id}
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="group"
+                >
+                  <Link href={`/portfolio/${project.slug}`} className="block">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-gray-100">
+                      <Image
+                        src={project.coverImage}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <h3 className="text-lg font-light">{project.title}</h3>
+                      <p className="text-sm text-gray-600">{project.location}</p>
+                    </div>
+                  </Link>
+                </motion.article>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </motion.div>
       </div>
     </section>

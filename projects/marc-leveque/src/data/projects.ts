@@ -11,22 +11,22 @@ export const projects: Project[] = [
     client: 'Studio Architectes & Co',
     description: 'Une maison contemporaine baignée de lumière naturelle, où les volumes s\'entremêlent dans un jeu subtil d\'ombres et de transparences. Le projet met en valeur l\'interaction entre l\'intérieur et l\'extérieur, créant des espaces de vie fluides et lumineux.',
     shortDescription: 'Maison contemporaine aux volumes lumineux et épurés',
-    coverImage: '/projects/residence-lumiere/cover.jpg',
+    coverImage: '/projects/residence-lumiere/01.png',
     images: [
       {
-        src: '/projects/residence-lumiere/01.jpg',
+        src: '/projects/residence-lumiere/01.png',
         alt: 'Façade minimaliste avec grandes baies vitrées',
         width: 1920,
         height: 1280
       },
       {
-        src: '/projects/residence-lumiere/02.jpg',
+        src: '/projects/residence-lumiere/02.png',
         alt: 'Escalier sculptural en béton et verre',
         width: 1920,
         height: 1280
       },
       {
-        src: '/projects/residence-lumiere/03.jpg',
+        src: '/projects/residence-lumiere/03.png',
         alt: 'Salon ouvert avec double hauteur',
         width: 1920,
         height: 1280
@@ -48,22 +48,22 @@ export const projects: Project[] = [
     client: 'Groupe Immobilier Prestige',
     description: 'Un gratte-ciel de bureaux qui redéfinit la skyline de La Défense. La façade en verre et acier crée des reflets changeants tout au long de la journée, tandis que l\'intérieur offre des espaces de travail modernes et flexibles.',
     shortDescription: 'Tour de bureaux aux lignes audacieuses et réfléchissantes',
-    coverImage: '/projects/tour-horizon/cover.jpg',
+    coverImage: '/projects/tour-horizon/cover.png',
     images: [
       {
-        src: '/projects/tour-horizon/01.jpg',
+        src: '/projects/tour-horizon/01.png',
         alt: 'Vue extérieure de la tour au coucher du soleil',
         width: 1920,
         height: 1280
       },
       {
-        src: '/projects/tour-horizon/02.jpg',
+        src: '/projects/tour-horizon/02.png',
         alt: 'Hall d\'entrée monumental',
         width: 1920,
         height: 1280
       },
       {
-        src: '/projects/tour-horizon/03.jpg',
+        src: '/projects/tour-horizon/03.png',
         alt: 'Espace de travail collaboratif avec vue panoramique',
         width: 1920,
         height: 1280
@@ -88,19 +88,19 @@ export const projects: Project[] = [
     coverImage: '/projects/loft-industrial/cover.jpg',
     images: [
       {
-        src: '/projects/loft-industrial/01.jpg',
+        src: '/projects/loft-industrial/01.png',
         alt: 'Espace de vie principal avec poutres métalliques apparentes',
         width: 1920,
         height: 1280
       },
       {
-        src: '/projects/loft-industrial/02.jpg',
+        src: '/projects/loft-industrial/02.png',
         alt: 'Cuisine ouverte avec îlot en béton',
         width: 1920,
         height: 1280
       },
       {
-        src: '/projects/loft-industrial/03.jpg',
+        src: '/projects/loft-industrial/03.png',
         alt: 'Mezzanine avec bibliothèque sur mesure',
         width: 1920,
         height: 1280
